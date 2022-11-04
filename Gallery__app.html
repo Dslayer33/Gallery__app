@@ -4,6 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Gallery__app(style).css">
+
+        <link rel="stylesheet" href="adaptive/ad__main/Small-screens.css">
+
+
         <link rel="shortcut icon"  type="image/png" href="icons/4518628_framework_phoenix_icon.png">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,23 +15,43 @@
         <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header class="header">
-            <span class="header__container">
-                <span class="header__icon">
+        <header class="header" id="har">
+            <div class="header__container" id="h__container">
+                <a target="_blank" href="home/Gallery__app-home.html" class="header__icon">
                     <span class="icon__text">Eternal Memories</span>
                     <img class="icon__img" src="icons/4518628_framework_phoenix_icon.png">
-                </span>
+                </a>
 
-                <span class="header__menu">Menu</span>
-                <span class="header__memories">My memories</span>
-            </span>
+                <a href="#popup-1" class="header__menu">Menu</a>
+                <a href="#popup-2" class="header__memories">My memories</a>
+            </div>
         </header>
 
 
         <div class="btns-container">
-            <button class="btn-main">Sort<span class="btn-arr">&DownArrow;</span></button>
-            <button class="btn-main">Create collection</button>
-            <button class="btn-main">Mix</button>
+            <button id="btnfont" class="btn-main">
+                <img src="icons/sort-ascending.png" alt="sort-icon" class="btn-icon">
+                Sort
+                <img src="icons/sort-ascending.png" alt="sort-icon" class="btn-icon">
+            </button>
+
+            <button id="btnfont" class="btn-main">
+                <img src="icons/corners-in.png" alt="coll-icon" class="btn-icon">
+                Create collection
+                <img src="icons/corners-in.png" alt="coll-icon" class="btn-icon">
+            </button>
+
+            <button id="btnfont"  class="btn-main">
+                <img src="icons/arrows-in.png" alt="mix-icon" class="btn-icon">
+                Mix
+                <img src="icons/arrows-in.png" alt="mix-icon" class="btn-icon">
+            </button>
+
+            <button id="btnfont"  class="btn-main">
+                <img src="icons/trash.png" alt="del-icon" class="btn-icon">
+                Delete
+                <img src="icons/trash.png" alt="del-icon" class="btn-icon">
+            </button>
         </div>
 
 
@@ -55,17 +79,67 @@
     <img class="container-items__photo items__photo6 nature" title="Photo by Luca Bravo on Unsplash" alt="Author:Luca Bravo" src="img/luca-bravo-VowIFDxogG4-unsplash.jpg">
     <img class="container-items__photo items__photo7 nature" title="Photo by Sebastian Unrau on Unsplash" alt="Author:Sebastian Unrau" src="img/sebastian-unrau-v4e3JI7DDHI-unsplash.jpg">
     <img class="container-items__photo items__photo8 nature" title="Photo by Fabian Quintero on Unsplash" alt="Author:Fabian Quintero" src="img/fabian-quintero-UWQP2mh5YJI-unsplash.jpg">
+
+                    <form action="/" method="post" enctype="multipart/form-data" class="form">
+                         <input type="file" id="file" name="file"  multiple  accept=".jpg, .jpeg, .png" class="form__input">
+                         <label class="form__label u-label-animation--hover" for="file">
+                            <span class="form__label-text">Choose photos to upload</span> 
+                            <img src="icons/plus-circle.png" alt="label-icon" class="form__label-icon">
+                         </label>
+                    </form>
+
+
                </div>
            </div>
         </main>
 
         <footer class="footer">
-            <div class="footer__container">
-               <span class="creator"><img src="icons/copyright.png" alt="cricon" class="creator__icon">Creator:<a target="_blank" href=" " class="creator__link">Dslayer33</a></span>
+            <div class="footer__container" id="footcont">
+               <span class="creator"><img src="icons/copyright.png" alt="cricon" class="creator__icon">Creator:<a target="_blank" href="https://github.com/Dslayer33" class="creator__link">Dslayer33</a></span>
                <span class="icons-creater1"><a target="_blank" href=" https://www.freepik.com/author/flatart" class="iconscreater1-link">FlatArt</a></span>
-               <span class="icons-creater2"><a target="_blank" href="https://phosphoricons.com" class="iconscreater2-link">Phosphoricons</a></span>
+               <span class="icons-creater2"><a target="_blank" href="https://phosphoricons.com" class="iconscreater2-link" id="footlink3">Phosphoricons</a></span>
             </div>
         </footer>
+
+
+        <div class="popup-menu" id="popup-1">
+            <div class="popup-menu__container">
+                 <div class="popup">
+                    <div class="popup__panel-up">
+                        <img src="icons/dots-three-circle.png" alt="pop-icon" class="popup-icon">
+                        <h2 class="popup-title">Menu</h2>
+                        <a href="#har" class="popup-close">&times;</a>
+                    </div> 
+
+                    <div class="popup__panel-down">
+                        <button class="popup-btn">About website</button>
+                        <button class="popup-btn">Registration</button>
+                        <button class="popup-btn">Help</button>
+                        <button class="popup-btn">Privacy</button>
+                    </div> 
+                 </div>
+            </div>
+        </div>
+
+
+        <div class="popup-menu" id="popup-2">
+            <div class="popup-menu__container">
+                 <div class="popup">
+                    <div class="popup__panel-up">
+                        <img src="icons/identification-badge.png" alt="pop-icon" class="popup-icon">
+                        <h2 class="popup-title">Memories</h2>
+                        <a href="#har" class="popup-close">&times;</a>
+                    </div> 
+
+                    <div class="popup__panel-down">
+                        <button class="popup-btn">Log in</button>
+                        <button class="popup-btn">Log out</button>
+                        <button class="popup-btn">My gallery</button>
+                        <button class="popup-btn">Friends</button>
+                    </div> 
+                 </div>
+            </div>
+        </div>
 
             <!-- IDEAS -->
         <!--1)sorting photo by types

@@ -1,0 +1,139 @@
+ @media screen and (max-width:450px) {
+    html {
+        font-size: 60%;
+    }
+
+
+    .header {
+    width: 100%;
+
+
+     #h__container {
+        width: 96%;
+        padding: 2rem;
+        
+
+        .header__icon {
+
+            &:hover {
+                box-shadow:  0 0.5rem 2.5rem darken($color: rgb(85,85,149), $amount: 30%);
+            }
+
+            .icon__text {
+                font-size: 1.05rem;
+            }
+    
+            .icon__img {
+                width: 3rem;
+            }
+        }
+
+        .header__menu {
+            font-size: 1.05rem;
+        }
+
+        .header__memories {
+            font-size: 1.05rem;
+        }
+    }
+}
+
+   #btnfont {
+      font-size: 1.3rem; 
+   }
+
+
+    #footcont {
+        font-size: 1.1rem;
+        overflow: hidden;
+
+        .creator__icon {
+            display: none;
+        }
+    }
+
+ }
+
+ @media screen and (min-width:450px) {
+    html {
+        font-size: 62.5%;
+    }
+
+
+    .header {
+    width: 100%;
+
+
+     #h__container {
+        .header__icon {
+            .icon__text {
+                font-size: 1.5rem;
+            }
+    
+            .icon__img {
+                width: 3rem;
+            }
+        }
+
+        .header__menu {
+            font-size: 1.5rem;
+        }
+
+        .header__memories {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+   #btnfont {
+      font-size: 1.5rem; 
+   }
+
+
+    #footcont {
+        font-size: 1.5rem;
+        overflow: hidden;
+    }
+
+
+ }
+
+ @media screen and (min-width:1000px) {
+    html {
+        font-size: 62.5%;
+    }
+
+
+    .header {
+    width: 100%;
+
+
+     #h__container {
+        .header__icon {
+            .icon__text {
+                font-size: 2rem;
+            }
+        }
+
+        .header__menu {
+            font-size: 2rem;
+        }
+
+        .header__memories {
+            font-size: 2rem;
+        }
+    }
+}
+
+   #btnfont {
+      font-size: 2rem; 
+   }
+
+
+    #footcont {
+        font-size: 2rem;
+        overflow: hidden;
+    }
+
+
+ }

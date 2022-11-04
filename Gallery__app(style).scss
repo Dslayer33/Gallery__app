@@ -22,15 +22,22 @@ html {
 
 body {
     background-color:lighten($color: $body-color2, $amount: 20%);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: auto 1fr 1fr auto;
+    gap: 6rem;
 }
 
 .header {
     position: relative;
     width: 100%;
-    border:0.2rem solid black;
+    //border:0.2rem solid black;
     border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
     height: 20rem;
     background: radial-gradient($body-color1,$body-color2);
+    overflow: hidden;
 
     .header__container {
         width: 90%;
@@ -63,6 +70,7 @@ body {
             //grid-area:hicon;
             padding: 0.5rem;
             text-transform: uppercase;
+            text-decoration: none;
            
 
             &:hover {
@@ -101,6 +109,7 @@ body {
             0.1rem -0.1rem 0 #000,
            -0.1rem  0.1rem 0 #000,
             0.1rem  0.1rem 0 #000;
+            text-decoration: none;
             transition: all .2s;
 
             &:hover {
@@ -132,6 +141,7 @@ body {
             0.1rem -0.1rem 0 #000,
            -0.1rem  0.1rem 0 #000,
             0.1rem  0.1rem 0 #000;
+            text-decoration: none;
             transition: all .2s;
 
             &:hover {
@@ -178,6 +188,15 @@ body {
         0.1rem  0.1rem 0 #000;
         outline-offset: 0.5rem;
         transition: all .2s;
+        //letter-spacing: 0.2rem;
+        text-transform: uppercase;
+        border: none;
+        
+
+        .btn-icon {
+            height: 2rem;
+            align-self: center;
+        }
 
         &:hover {
             cursor: pointer;
@@ -195,12 +214,15 @@ body {
 
 
 .main {
-    //margin-top: 15rem;
+    //margin-top: -10rem;
 
     .u-main-container {
         width: 100%;
         border: 0.2rem solid black;
         border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+        overflow: hidden;
+       
+            
 
         .container-items {
             width: 96%;
@@ -208,15 +230,76 @@ body {
             //max-height: fit-content;
             margin: 0 auto;
             background: radial-gradient($body-color1,$body-color2);
+            border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+            border-left: 0.2rem solid $body-color1;
+            border-right: 0.2rem solid $body-color1;
             padding: 1rem;
             display: grid;
             //grid-auto-flow: column;
             //grid-template-columns: repeat(3,minmax(5rem,1fr));
             grid-template-columns: repeat(4,1fr);
-            grid-template-columns: repeat(auto-fit,1fr);
+            grid-template-rows: repeat(auto-fit,1fr);
             gap: 2rem;
             justify-items: center;
-            
+           
+
+            .form {
+              height: 10rem;
+              margin-bottom: 1rem;
+
+                &__input {
+                    opacity: 0;
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                
+    
+                &__label {
+                    display: block;
+                    height: 10rem;
+                    height: inherit;
+                    font-size: 1.5rem;
+                    border: 0.2rem solid darken($color: $body-color2, $amount: 35%);
+                    padding: 0.5rem;
+                    border-radius: 1rem;
+                    text-transform: uppercase;
+                    color: white;
+                    text-shadow:
+                    0.2rem  0.2rem 0 #000,
+                   -0.1rem -0.1rem 0 #000,  
+                    0.1rem -0.1rem 0 #000,
+                   -0.1rem  0.1rem 0 #000,
+                    0.1rem  0.1rem 0 #000;
+                    transition: all .2s;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    margin-bottom: 1rem;
+                    background-color: lighten($color: $body-color1, $amount: 5%);
+
+                    &-icon {
+                        width: 4rem;
+                        justify-self: center;
+                        align-self: center;
+                        outline-offset: 0.1rem;
+
+                        &:hover {
+                            transform: scale(1.1);
+                            /*border-radius: 2rem;
+                            outline: 0.5rem solid darken($color: $body-color1, $amount: 20%);*/
+                        }
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+    
+                }
+               
+            }
+
+           
 
             
 
@@ -242,8 +325,8 @@ body {
 .footer {
     position: relative;
     background-color:$body-color1;
-    margin-top: 10rem;
-    border: 0.2rem solid black;
+    //margin-top: 10rem;
+    //border: 0.2rem solid black;
     width: 100%;
     height: 10rem;
     border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
@@ -318,6 +401,120 @@ body {
                 text-decoration: underline;
                 text-underline-offset: 0.5rem;
             }
+        }
+    }
+}
+
+
+.popup-menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: darken($color: $body-color2, $amount: 15%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__container {
+        width: inherit;
+        height: inherit;
+        position: relative;
+
+        .popup {
+            position: absolute;
+            padding: 1rem;
+            width: 55%;
+            //height: 50rem;
+            color: white;
+            text-align: center;
+            border: 0.2rem solid white;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 0.5rem;
+            background-color: lighten($color: $body-color1, $amount: 5%);
+            box-shadow: 0 1.5rem 2.5rem $body-color1;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+
+            &__panel-up {
+                width: 100%;
+                display: flex;
+                //gap: 2rem;
+                justify-content: space-around;
+               
+
+
+                .popup-icon {
+                    width: 3rem;
+                    height: 3rem;
+                    align-self: center;
+                    
+                }
+
+                .popup-title {
+                    font-size: 3rem;
+                    text-transform:uppercase;
+                    color: white;
+                    text-shadow:
+                    0.2rem  0.2rem 0 #000,
+                   -0.1rem -0.1rem 0 #000,  
+                    0.1rem -0.1rem 0 #000,
+                   -0.1rem  0.1rem 0 #000,
+                    0.1rem  0.1rem 0 #000;
+                }
+
+
+                .popup-close {
+                    font-size: 3rem;
+                    color: white;
+                    text-decoration: none;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+
+
+            } 
+
+
+            &__panel-down {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 4rem;
+               
+
+                .popup-btn {
+                    font-size: 2rem;
+                    width: 20rem;
+                    border-radius: 2rem;
+                    border: 0.5rem solid $body-color2;
+                    color:darken($color: $body-color1, $amount: 15%);
+                    text-transform: uppercase;
+                    align-self: center;
+                    padding: 1rem;
+                    transition: all .2s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        cursor: pointer;
+                        box-shadow: 0 0.5rem 1rem $body-color2;
+                    }
+
+                    &:active {
+                        transform: scale(0.9);
+                    }
+                }
+            } 
         }
     }
 }
